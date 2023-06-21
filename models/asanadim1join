@@ -1,0 +1,26 @@
+with asana as (
+
+    select *
+        
+    from `ip-ipg-data`.asana.ASANA_FINAL
+
+),
+
+dim as (
+
+    select *
+        
+    from `ip-ipg-data`.asana.asana_mdis_dis_dim
+
+),
+
+
+
+final as (
+
+   SELECT* FROM `ip-ipg-data'.asana.ASANA_FINAL
+LEFT JOIN `ip-ipg-data'.asana.asana_mdis_dis_dim ON asana.Project_Name=dim.Asana_Partner
+
+)
+
+select * from final
